@@ -1,4 +1,32 @@
+# next.js + next-auth(google) + prisma
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+## get google cert
+
+![1](https://user-images.githubusercontent.com/23612161/109663998-abfa6200-7ba7-11eb-9f46-e0c05ee98753.png)
+
+![2](https://user-images.githubusercontent.com/23612161/109664078-bddc0500-7ba7-11eb-836e-38a8e4c2376b.png)
+
+## create postgres db use docker
+
+``` bash
+docker run -d \
+    --name postgres \
+    -p 5432:5432 \
+    -e POSTGRES_PASSWORD=password \
+    -e PGDATA=/var/lib/postgresql/data/pgdata \
+    -v $PWD/pgdata:/var/lib/postgresql/data \
+    --restart=unless-stopped \
+    postgres
+```
+
+## prisma
+
+``` bash
+npx prisma generate
+npx prisma migrate dev --preview-feature
+```
 
 ## Getting Started
 
